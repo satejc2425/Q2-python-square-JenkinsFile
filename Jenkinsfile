@@ -16,18 +16,18 @@ pipeline{
       steps{
         script{
           try{
-            sh "sudo docker rmi -f ${IMAGE_NAME}:${TAG}"
+            sh "docker rmi -f ${IMAGE_NAME}:${TAG}"
           }catch (Exception e){
             echo "Image not found with the '${IMAGE_NAME}:${TAG}'"
           }
-          sh "sudo docker build -t ${IMAGE_NAME}:${TAG} ."
+          sh "docker build -t ${IMAGE_NAME}:${TAG} ."
         }
       }
     }
     stage('Run docker image'){
       steps{
         script{
-          sh "sudo docker run -it ${IMAGE_NAME}:${TAG}"
+          sh "docker run -it ${IMAGE_NAME}:${TAG}"
         }
       }
     }
