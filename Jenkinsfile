@@ -27,7 +27,7 @@ pipeline{
     stage('Run docker image'){
       steps{
         script{
-          sh "docker run -it ${IMAGE_NAME}:${TAG}"
+          sh "docker run -${IMAGE_NAME}:${TAG}"
         }
       }
     }
